@@ -32,7 +32,7 @@ Using the buttons, the application displays a 3D model of the dog, which wiggles
 
 ### MF-7: Change dog:
 
-The application should allow the user to view the list of saved dogs and their details. Unable to perform, the collection contains only the dog named Fanny.
+The application should allow the user to view the list of saved dogs and their details. Melody is added after scanning 1st QR code.
 
 ### MF-8: Create user account:
 
