@@ -20,7 +20,7 @@ The application allows taking a photo of the dog and saving the photo. Same prob
 
 ### MF-4: Display dog:
 
-The application displays a 3D model of the dog in your surroundings, which wiggles and moves somehow. There is an issue with moving the dog to another location.
+The application displays a 3D model of the dog in your surroundings, which wiggles and moves somehow. There is an issue with moving the dog to another location. When I move the phone around, dog would stay at one place. 
 
 ### MF-5: Display saved dogs:
 
