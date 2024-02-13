@@ -37,3 +37,8 @@ The application should allow the user to view the list of saved dogs and their d
 ### MF-8: Create user account:
 
 Email and password are required. During registration, when the user enters an email, the email input turns blue - the background of the password input remains white, which is inconsistent. The checkbox with GDPR conditions blends too much with the background of the registration form. After filling in the necessary data and checking the GDPR checkbox, the "Register" button changes to orange - again, a consistency issue. After clicking the "Register" button, a modal window with successful registration appears - there is an issue with the image of the dog and its paws covering the text. Also, its head cannot be seen. Login after new registration proceeds correctly, and "Your collection" is displayed.
+
+Performance issue:
+App starts to freeze after couple of minutes while photo mode is on. Smarth phone starts to overheat.
+
+Tested on Samsung Galaxy S22 - Android V14
