@@ -1,0 +1,203 @@
+{
+	"info": {
+		"_postman_id": "4721dfe4-4198-4a1d-bcdb-ec2492cd58b9",
+		"name": "Basic API testing collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "25164186",
+		"_collection_link": "https://www.postman.com/bold-astronaut-73917/workspace/koala42/collection/25164186-4721dfe4-4198-4a1d-bcdb-ec2492cd58b9?action=share&source=collection_link&creator=25164186"
+	},
+	"item": [
+		{
+			"name": "Characters - status code, JSON validation and all data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Response is valid JSON\", function() {",
+							"    pm.response.to.be.json;",
+							"});",
+							"",
+							"pm.test(\"Response contains all character data and properties\", function() {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.data).to.be.an('array').that.is.not.empty;",
+							"",
+							"    jsonData.data.forEach(function(character) {",
+							"        pm.expect(character).to.have.property('id');",
+							"        pm.expect(character).to.have.property('name');",
+							"        pm.expect(character).to.have.property('gender');",
+							"        pm.expect(character).to.have.property('ability');",
+							"        pm.expect(character).to.have.property('minimal_distance');",
+							"        pm.expect(character).to.have.property('weight');",
+							"        pm.expect(character).to.have.property('born');",
+							"        pm.expect(character).to.have.property('in_space_since');",
+							"        pm.expect(character).to.have.property('beer_consumption');",
+							"        pm.expect(character).to.have.property('knows_the_answer');",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{bearerToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{characterUrl}}",
+				"description": "\nThis endpoint makes an HTTP GET request to the provided URL. It retrieves a JSON response with data about a character, including their ID, name, gender, ability, minimal distance, weight, birth information, duration in space, beer consumption, and knowledge status. The response status is 200 (OK).\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Response returns correct character count",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.code).to.equal(200, \"Status code is not 200\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Response is valid JSON\", function() {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response returns correct character count\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data).to.be.an('array');\r",
+							"    pm.expect(jsonData.data.length).to.equal(11); \r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{bearerToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{characterUrl}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Nemesis - status code, JSON validation and all data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.code).to.equal(200, \"Status code is not 200\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Response is valid JSON\", function() {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains all nemesis data\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    jsonData.data.forEach(function(statistic) {\r",
+							"        pm.expect(statistic).to.have.property('is_alive');\r",
+							"        pm.expect(statistic).to.have.property('years');\r",
+							"        pm.expect(statistic).to.have.property('id');\r",
+							"        pm.expect(statistic).to.have.property('character_id');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{bearerToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{nemesisUrl}}"
+			},
+			"response": []
+		},
+		{
+			"name": "Secret - status code, JSON validation and all data",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"    pm.expect(pm.response.code).to.equal(200, \"Status code is not 200\");\r",
+							"});\r",
+							"\r",
+							"    pm.test(\"Response is valid JSON\", function() {\r",
+							"    pm.response.to.be.json;\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response contains all secret data\", function() {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data).to.be.an('array').that.is.not.empty;\r",
+							"\r",
+							"    jsonData.data.forEach(function(secret) {\r",
+							"        pm.expect(secret).to.have.property('id');\r",
+							"        pm.expect(secret).to.have.property('secret_code');\r",
+							"        pm.expect(secret).to.have.property('nemesis_id');\r",
+							"    });\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{bearerToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{secretUrl}}"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "characterUrl",
+			"value": "https://assessment.k42.app/items/character?limit=9999"
+		},
+		{
+			"key": "averageWeight",
+			"value": ""
+		}
+	]
+}
