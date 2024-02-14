@@ -42,3 +42,27 @@ Performance issue:
 App starts to freeze after couple of minutes while photo mode is on. Smarth phone starts to overheat.
 
 Tested on Samsung Galaxy S22 - Android V14
+
+
+
+API-Testing
+
+1. Test case:
+   Validate if status code is 200
+   Validate if response is valid JSON
+   Validate if response contains all CHARACTERS - data and properties
+
+2. Test case:
+   Validate if status code is 200
+   Validate if response is valid JSON
+   Validate if returns correct CHARACTERS - cound
+
+3. Test case:
+   Validate if status code is 200
+   Validate if response is valid JSON
+   Validate if response contains all NEMESIS - data and properties
+
+4. Test case:
+   Validate if status code is 200
+   Validate if response is valid JSON
+   Validate if response contains all SECRETS - data and properties
